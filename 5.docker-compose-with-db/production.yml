@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  app-nodejs:
+    image: ktabriga/sample-nodejs
+    ports:
+      - 80:3000
+    environment:
+      - MONGO_HOST=mongo
+      - MONGO_PORT=27017
+      - MONGO_USER=root
+      - MONGO_PASSWORD=production
+  mongodb:
+    image: mongo
+    hostname: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=production
